@@ -1,12 +1,14 @@
 ﻿namespace AspNetCore.StaticFiles
 {
-    using System;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
+    using System;
+    using System.IO;
 
     public class Startup : IStartup
     {
@@ -14,6 +16,7 @@
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddDirectoryBrowser();
             return services.BuildServiceProvider();
         }
 
@@ -31,10 +34,26 @@
                 app.UseDeveloperExceptionPage();
             }
 
+            DefaultFilesOptions defaultFilesOptions = locator.GetService<IOptions<DefaultFilesOptions>>()?.Value;
+            defaultFilesOptions.DefaultFileNames.Clear();
+            defaultFilesOptions.DefaultFileNames.Add("mydefault.html");
+            app.UseDefaultFiles(defaultFilesOptions);
 
-            StaticFileOptions sfo = locator.GetService<IOptions<StaticFileOptions>>()?.Value;
+            app.UseDefaultFiles();
 
-            app.UseStaticFiles(sfo);
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, @"MyStaticFiles")),
+                RequestPath = new PathString("/StaticFiles")
+            });
+
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, @"MyStaticFiles")),
+                RequestPath = new PathString("/StaticFiles")
+            });
 
             app.Run(async (context) =>
             {
