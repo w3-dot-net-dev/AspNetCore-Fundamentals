@@ -1,8 +1,7 @@
-﻿namespace AspNetCore.ErrorHandling
+﻿namespace AspNetCore.GlobalizationAndLocalization
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
@@ -45,6 +44,7 @@
             IHostingEnvironment env = app.ApplicationServices.GetService<IHostingEnvironment>();
             ILoggerFactory loggerFactory = app.ApplicationServices.GetService<ILoggerFactory>();
 
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -63,16 +63,6 @@
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
-
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Query.ContainsKey("throw"))
-                {
-                    throw new Exception("Test Exception");
-                }
-
-                await next.Invoke();
-            });
 
             app.UseMvc(routes =>
             {
