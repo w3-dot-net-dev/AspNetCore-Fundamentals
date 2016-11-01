@@ -22,6 +22,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.ErrorHandling", 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.GlobalizationAndLocalization", "src\AspNetCore.GlobalizationAndLocalization\AspNetCore.GlobalizationAndLocalization.xproj", "{7ADF3A7B-829F-4B81-BD41-E777209275B2}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.Logging", "src\AspNetCore.Logging\AspNetCore.Logging.xproj", "{91103D39-95C6-4DB7-A2E2-80899EE88F79}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.ClientValidation", "src\AspNetCore.ClientValidation\AspNetCore.ClientValidation.xproj", "{3EE6D735-F3CA-4FDB-80D0-E529A442E65C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,14 @@ Global
 		{7ADF3A7B-829F-4B81-BD41-E777209275B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ADF3A7B-829F-4B81-BD41-E777209275B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADF3A7B-829F-4B81-BD41-E777209275B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91103D39-95C6-4DB7-A2E2-80899EE88F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91103D39-95C6-4DB7-A2E2-80899EE88F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91103D39-95C6-4DB7-A2E2-80899EE88F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91103D39-95C6-4DB7-A2E2-80899EE88F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE6D735-F3CA-4FDB-80D0-E529A442E65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE6D735-F3CA-4FDB-80D0-E529A442E65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE6D735-F3CA-4FDB-80D0-E529A442E65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE6D735-F3CA-4FDB-80D0-E529A442E65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +75,7 @@ Global
 		{73BE8193-13D2-4EF2-B6B0-B12BE1202099} = {BAED3342-396F-4050-8CC4-0B2E408ECE46}
 		{6D6A0FAC-C5D1-47D7-AF68-037E983C94EC} = {BAED3342-396F-4050-8CC4-0B2E408ECE46}
 		{7ADF3A7B-829F-4B81-BD41-E777209275B2} = {BAED3342-396F-4050-8CC4-0B2E408ECE46}
+		{91103D39-95C6-4DB7-A2E2-80899EE88F79} = {BAED3342-396F-4050-8CC4-0B2E408ECE46}
+		{3EE6D735-F3CA-4FDB-80D0-E529A442E65C} = {BAED3342-396F-4050-8CC4-0B2E408ECE46}
 	EndGlobalSection
 EndGlobal

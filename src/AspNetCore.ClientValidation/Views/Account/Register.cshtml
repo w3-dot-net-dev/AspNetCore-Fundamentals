@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AspNetCore.ClientValidation.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <fieldset>
+        <legend>Registration</legend>
+        <div>
+            <div>
+                <label asp-for="Email"></label>
+            </div>
+            <div>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label asp-for="Password"></label>
+            </div>
+            <div>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label asp-for="ConfirmPassword"></label>
+            </div>
+            <div>
+                <input asp-for="ConfirmPassword" />
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label asp-for="RemeberMe"></label>
+            </div>
+            <div>
+                <input asp-for="RemeberMe" />
+                <span asp-validation-for="RemeberMe"></span>
+            </div>
+        </div>
+    </fieldset>
+    <input type="button" value="Valid" />
+    <input type="submit" value="Submit"/>
+    <div asp-validation-summary="All">
+    </div>
+</form>
